@@ -1,6 +1,10 @@
 node_modules
 .DS_Store
 
+# Vim
+*.swp
+*.un~
+
 # SSH keys
 *.pem
 *.pem.pub
