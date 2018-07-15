@@ -54,10 +54,12 @@ module.exports = function (grunt) {
                 excludes: ['*']
             }
         }), [ // node.js
-            'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash',
-            'export NVM_DIR="/home/ubuntu/.nvm"',
-            '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"',
-            'nvm install 8',
+            'sudo apt-get install software-properties-common',
+            'sudo add-apt-repository -y -r ppa:chris-lea/node.js',
+            'sudo rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list',
+            'sudo apt-get update',
+            'sudo apt-get install nodejs -y'
+            'sudo apt-get install npm -y'
         ], [ // pm2
             'sudo apt-get install make g++ -y',
             'sudo npm install -g pm2 --unsafe-perm',
