@@ -54,11 +54,9 @@ module.exports = function (grunt) {
                 excludes: ['*']
             }
         }), [ // node.js
-            'sudo apt-get install software-properties-common',
-            'sudo add-apt-repository -y -r ppa:chris-lea/node.js',
-            'sudo rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list',
-            'sudo apt-get update',
-            'sudo apt-get install nodejs -y'
+            'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash',
+            'source ~/.bashrc',
+            'nvm install 8',
         ], [ // pm2
             'sudo apt-get install make g++ -y',
             'sudo npm install -g pm2 --unsafe-perm',
