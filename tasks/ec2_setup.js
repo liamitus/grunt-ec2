@@ -58,7 +58,7 @@ module.exports = function (grunt) {
             'sudo add-apt-repository -y -r ppa:chris-lea/node.js',
             'sudo rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list',
             'sudo apt-get update',
-            'sudo apt-get install nodejs -y',
+            'sudo apt-get install nodejs-legacy -y',
             'sudo apt-get install npm -y'
         ], [ // pm2
             'sudo apt-get install make g++ -y',
