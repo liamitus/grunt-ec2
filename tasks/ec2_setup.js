@@ -55,7 +55,8 @@ module.exports = function (grunt) {
             }
         }), [ // node.js
             'sudo apt-get install software-properties-common',
-            'sudo add-apt-repository ppa:chris-lea/node.js -y',
+            'sudo add-apt-repository -y -r ppa:chris-lea/node.js',
+            'sudo rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list',
             'sudo apt-get update',
             'sudo apt-get install nodejs -y'
         ], [ // pm2
