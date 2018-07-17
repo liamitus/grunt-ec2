@@ -6,7 +6,7 @@ var conf = require('./lib/conf.js');
 
 module.exports = function (grunt) {
 
-    grunt.registerTask('ec2-release-address', 'Releases an IP address', function (ip) {
+    grunt.registerTask('ec2-release-address', 'Releases an IP address', function (ip, id) {
         conf.init(grunt);
 
         if (arguments.length === 0) {
@@ -20,7 +20,8 @@ module.exports = function (grunt) {
 
         var done = this.async();
         var params = {
-            PublicIp: ip
+            PublicIp: ip,
+            AllocationId: id
         };
 
         aws.log('ec2 release-address --public-ip %s', ip);

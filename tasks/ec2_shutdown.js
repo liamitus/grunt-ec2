@@ -29,7 +29,7 @@ module.exports = function (grunt) {
             ];
 
             if (elastic) {
-                tasks.push('ec2-release-address:' + ip);
+                tasks.push('ec2-release-address:' + ip + ':' + id);
             }
 
             grunt.log.writeln('Queuing termination task for instance %s...', chalk.red(id));
