@@ -2,7 +2,7 @@
 
 var chalk = require('chalk');
 var lookup = require('./lib/lookup.js');
-var address_lookup = require('./lib/address_lookup.js');
+var address_lookup = require('./lib/address-lookup.js');
 var conf = require('./lib/conf.js');
 
 module.exports = function (grunt) {
