@@ -20,7 +20,6 @@ module.exports = function (grunt) {
 
         var done = this.async();
         var params = {
-            PublicIp: ip,
             AllocationId: id
         };
 
