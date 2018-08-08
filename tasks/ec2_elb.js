@@ -52,7 +52,7 @@ module.exports = function (grunt) {
 
                 grunt.log.writeln('%sing %s instance with %s ELB', capitalized, chalk.cyan(name), chalk.cyan(balancer));
 
-                aws.log('elb %s --load-balancer-name %s --instances %s', cmd.cli, balancer, name);
+                aws.log('elbv2 %s --load-balancer-name %s --instances %s', cmd.cli, balancer, name);
                 aws.elb[cmd.sdk](params, aws.capture('Done! Instance %sed.', action, done));
             });
         });

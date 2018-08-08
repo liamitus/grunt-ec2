@@ -59,7 +59,9 @@ module.exports = function (grunt) {
             'sudo rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list',
             'sudo apt-get update',
             'sudo apt-get install nodejs-legacy -y',
-            'sudo apt-get install npm -y'
+            'sudo apt-get install npm -y',
+            'sudo npm install -g n',
+            'sudo n lts',
         ], [ // pm2
             'sudo apt-get install make g++ -y',
             'sudo npm install -g pm2 --unsafe-perm',
