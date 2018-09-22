@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         }, [
             util.format('sudo rm -rf `ls -t %s | tail -n +11`', versions)
         ], workflow.if_not('NPM_INSTALL_DISABLED', [
-            util.format('sudo npm --prefix %s install --production --loglevel %s', dest, verbosity)
+            util.format('npm --prefix %s install --production --loglevel %s', dest, verbosity)
         ]), workflow.if_has('NPM_REBUILD', [
             'sudo npm rebuild'
         ]), [

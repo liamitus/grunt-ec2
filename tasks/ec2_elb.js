@@ -9,12 +9,12 @@ var lookup = require('./lib/lookup.js');
 module.exports = function (grunt) {
     var map = {
         attach: {
-            cli: 'register-instances-with-load-balancer',
-            sdk: 'registerInstancesWithLoadBalancer'
+            cli: 'register-targets',
+            sdk: 'registerTargets'
         },
         detach: {
-            cli: 'deregister-instances-from-load-balancer',
-            sdk: 'deregisterInstancesFromLoadBalancer'
+            cli: 'deregister-targets',
+            sdk: 'deregisterTargets'
         }
     };
 
@@ -46,13 +46,15 @@ module.exports = function (grunt) {
             lookup(name, function (instance) {
                 var cmd = map[action];
                 var params = {
-                    LoadBalancerName: balancer,
-                    Instances: [{ InstanceId: instance.InstanceId }]
+                    TargetGroupArn: balancer,
+                    Targets: [{ Id: instance.InstanceId }]
                 };
 
                 grunt.log.writeln('%sing %s instance with %s ELB', capitalized, chalk.cyan(name), chalk.cyan(balancer));
 
-                aws.log('elbv2 %s --load-balancer-name %s --instances %s', cmd.cli, balancer, name);
+                aws.log('elbv2 %s --target-group-arn %s --targets %s', cmd.cli, balancer, name);
+                grunt.log.writeln('TEST ' + aws.elb[cmd.sdk]);
+                grunt.log.writeln('TEST 2 ' + cmd.sdk);
                 aws.elb[cmd.sdk](params, aws.capture('Done! Instance %sed.', action, done));
             });
         });
